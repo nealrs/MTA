@@ -21,4 +21,7 @@ Create charts & data tables using <a href="http://www.mta.info/developers/turnst
 		<li><a href="http://stackoverflow.com" target="_blank">StackOverflow</a></li>
 	</ul>
 	
+	Please note: because the scripts strip non-'REGULAR' & off-hour audit events from the MTA data, you may find some missing data points on the charts. I'm working on a solution.
+
+	
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/nealrs/MTA/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
