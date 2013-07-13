@@ -2,7 +2,7 @@ $(document).ready(function() {
 			
 			$('#lastupdate').html('12/24/2012 - '+ moment().subtract('days', 7).endOf('week').format('L') );
 			
-			// date picker crap
+			// date picker initilization
 			$('#dates').daterangepicker(
                      {
                         ranges: {
@@ -39,9 +39,6 @@ $(document).ready(function() {
                   //Set the initial state of the picker label
                   $('#dates2 span').html(moment().subtract('days', 7).startOf('week').subtract('days', 1).format('MMMM D, YYYY') + ' - ' + moment().subtract('days', 7).endOf('week').format('MMMM D, YYYY'));
 
-			
-			
-            // handle edit button click event
             
             $(".chart_button").click(function() {
                 $(".table_container").hide();
@@ -61,48 +58,40 @@ $(document).ready(function() {
                 $(".placeholder_container").show();
                 $(".chart_container").hide();
                 $(".table_container").hide();
-               //$('#form').reset();
-               //document.getElementById("form").reset();
                 
             });
-
+            
+			// initially hide both table and chart containers.
 			$(".table_container").hide();
 			$(".chart_container").hide();
 			
 			/////
 			
 			$('#form').on('submit', function (e) {
+			  $.ajax({
+				type: 'get',
+				url: 'get.php',
+				data: $('form').serialize(),
+				contentType: "application/json",
+				success: function (data) {
 			  
-			  /*if ( 
-			  	document.forms['form'].question.name == null 
-			  	|| document.forms['form'].question.name != "" 
-			  	|| document.forms['form'].question.remote != null 
-			  	|| document.forms['form'].question.remote != "")
-			  {
-			  	alert('Check your inputs!');
-			  	return false;
-			  }*/
-				  $.ajax({
-					type: 'get',
-					url: 'get.php',
-					data: $('form').serialize(),
-					contentType: "application/json",
-					success: function (data) {
+				  var parsed = jQuery.parseJSON(data);
+				  //console.log(parsed);
+			  
+				  // ok, now lets plot the chart and write out the data table.
+				  plotChart(parsed);
+			  
+				  //console.log(parsed.table);
+				  dataTable(parsed.table);
 				  
-					  var parsed = jQuery.parseJSON(data);
-					  //console.log(parsed);
-				  
-					  // ok, now lets plot the chart and write out the data table.
-					  plotChart(parsed);
-				  
-					  //console.log(parsed.table);
-					  dataTable(parsed.table);
-					  				  
-					},
-				
-					error: function(XMLHttpRequest, textStatus, errorThrown) { alert("Oops! Please recheck your inputs and try again.");}
-				
-				  });
+				  // csv export
+				  JSON2CSV(parsed.table);
+								  
+				},
+			
+				error: function(XMLHttpRequest, textStatus, errorThrown) { alert("Oops! Please recheck your inputs and try again.");}
+			
+			  });
 			  e.preventDefault();
 			});
 });
@@ -138,7 +127,9 @@ function plotChart(data) {
 
 function dataTable(data){
 	// setup data table.
-	var str= "<table class='span12 table table-striped table-condensed table-hover table-bordered'><thead><tr><th>Interval Start</th><th>Entries</th><th>Exits</th><th>Interval End</th><th>Entries</th><th>Exits</th></tr></thead><tbody>";
+	
+	var str = "<div class='pull-right'><span onclick = 'downloadCSV()' class = ' tip label label-success' data-toggle='tooltip' title='Download CSV'>Download</span></a>&nbsp;</div><br><br>";
+	str +="<table class='span12 table table-striped table-condensed table-hover table-bordered'><thead><tr><th>Interval Start</th><th>Entries</th><th>Exits</th><th>Interval End</th><th>Entries</th><th>Exits</th></tr></thead><tbody>";
 			
 			// load data table
 			$.each(data, function(){
@@ -156,3 +147,46 @@ function dataTable(data){
 	//$('.table_container').show().html(str);
 	$('.table_container').html(str);
 }
+
+function JSON2CSV(objArray) {
+	// like it says, create CSV based on .table array from original return.
+    var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+    var str = '';
+    var line = '';
+
+        var head = array[0];
+		for (var index in array[0]) {
+        	var value = index + "";
+            line += '"' + value.replace(/"/g, '""') + '",';
+        }
+
+        line = line.slice(0, -1);
+        str += line + '\r\n';
+
+    for (var i = 0; i < array.length; i++) {
+        var line = '';
+
+        for (var index in array[i]) {
+        	var value = array[i][index] + "";
+            line += '"' + value.replace(/"/g, '""') + '",';
+        }
+
+        line = line.slice(0, -1);
+        str += line + '\r\n';
+    }
+    
+    csv_data = str;
+    return str;
+    
+    //window.open("data:text/csv;charset=utf-8," + escape(str))
+}
+
+
+function downloadCSV() {
+	window.open("data:text/csv;charset=utf-8," + escape(csv_data))
+}
+// setup global csv variable.
+var csv_data = "";    
+
+
+
