@@ -82,13 +82,14 @@
       </div>
     </div>
     <div class="container" id = "maincont">
+    
       <div class="row"> <!--- chart controls --->
       	<form class="form-inline span12" id ="form">
       		<!--<span class="control-level" for ="station">Station:</span>-->
       		<i class="icon-map-marker"></i> </span>	
       			<!--- populate using a db query (pull station codes + station names) & set selected based on db query too--->
       			<!--- maybe find station using map or "find station by train line" or something like that.--->
-      		<select name = "remote"> 	
+      		<select name = "remote" class="tip" data-toggle="tooltip" title="Stations may have multiple codes"> 	
       			<!--<option value="">Select Station</option>-->
       			<option value="">Select Station Remote Code</option>
       			<option value="R248">1 AVE - R248</option>
@@ -597,7 +598,7 @@
       		
 			<!---<label class="control-label" for="dates">Date range:</label>--->
 			<i class="icon-calendar "></i> </span>
-			<input type="text" name="dates" id="dates" placeholder="MM/DD/YYY - MM/DD/YYY"/>&nbsp;&nbsp;&nbsp;
+			<input class = "tip" type="text" name="dates" id="dates" data-toggle="tooltip" title="1-2 weeks is ideal" placeholder="MM/DD/YYY - MM/DD/YYY"/>&nbsp;&nbsp;&nbsp;
 			
 			
 			<!--<span id="dates" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
@@ -614,18 +615,26 @@
 			</div>--->
       	
       		<span class="pull-right">
-      			Current dataset: <span id ="lastupdate" class = "label label-warning"></span>
+      			Current dataset: <span id ="lastupdate" class = "tip label label-warning" data-toggle="tooltip" title="The database is updated every Monday"></span>
       		</span>
       	
       	</form>
       </div>
       
+      <!--<div id = "alert_container container">
+    	<div class="alert alert-info ">
+  			<button type="button" class="close" data-dismiss="alert">&times;</button>
+  			<strong>Note:</strong> I'm stripping non-'REGULAR' & off-hour audit events, so there may be some data missing from your chart.
+		</div>
+	  </div>--->
+      
       <div class="row chart_container"> <!--- chart --->
             	
       	<div class="row">
       		<span class="pull-right">
-      			<span class = "label" style="background-color:#3880aa;">Entries</span>&nbsp;
-      			<span class = "label" style="background-color:#4da944;">Exits</span>
+      			<span class = "tip label" data-toggle="tooltip" title="As a result of data sanitization, there may be some missing chart data." style="background-color:#000;">Missing Data?</span>&nbsp;
+      			<span class = "tip label" data-toggle="tooltip" title="4 hour interval" style="background-color:#3880aa;">Entries</span>&nbsp;
+      			<span class = "tip label" data-toggle="tooltip" title="4 hour interval" style="background-color:#f26522;">Exits</span>
       		</span>
       	</div>
       	
@@ -659,7 +668,7 @@
 			<li><a href="http://stackoverflow.com" target="_blank">StackOverflow</a></li>
 		</ul>
 		
-		<p>Note: I'm stripping non-'REGULAR' & off-hour audit events from the MTA data, so there may be some missing data in charts. Rest assured, I'm working on a solution.</p>
+		<!---<p>Note: I'm stripping non-'REGULAR' & off-hour audit events from the MTA data, so there may be some missing data in charts. Rest assured, I'm working on a solution.</p>--->
 
       </div> 
       <script>$(".tip").tooltip({placement:"bottom"})</script>     

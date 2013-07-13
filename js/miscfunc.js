@@ -88,7 +88,7 @@ $(document).ready(function() {
 				  
 					  //console.log(parsed.table);
 					  dataTable(parsed.table);
-				  
+					  				  
 					},
 				
 					error: function(XMLHttpRequest, textStatus, errorThrown) { alert("Oops! Please recheck your inputs and try again.");}
@@ -100,7 +100,6 @@ $(document).ready(function() {
 
 
 function plotChart(data) {
-      
       // setup chart data
       var data = {
 		  "xScale": "ordinal",
@@ -125,6 +124,7 @@ function plotChart(data) {
   	  
   	  // finally, create the plot
       var myChart = new xChart('bar', data, '#chart', opts);
+      
 }
 
 function dataTable(data){
