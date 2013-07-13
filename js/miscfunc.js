@@ -56,6 +56,15 @@ $(document).ready(function() {
                 $(".table_container").show();
                 
             });
+            
+             $(".brand").click(function() {
+                $(".placeholder_container").show();
+                $(".chart_container").hide();
+                $(".table_container").hide();
+               //$('#form').reset();
+               //document.getElementById("form").reset();
+                
+            });
 
 			$(".table_container").hide();
 			$(".chart_container").hide();
