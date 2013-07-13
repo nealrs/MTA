@@ -15,6 +15,7 @@ if (!empty($_GET["dates"])){
 function get_data($remote, $start, $end){
 
 		// convert to time, add a day and convert back (kind of inefficient, but ugh, it was in ruby too.
+		date_default_timezone_set('America/New_York');
 		$date = date_create($end);
 		$date ->modify('+1 day');
 		$end =  date_format($date, 'Y-m-d')." 00:00:00";
