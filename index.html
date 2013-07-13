@@ -7,11 +7,8 @@
     <meta name="description" content="This app creates charts & data tables using MTA turnstile data">
     <meta name="author" content="Neal Shyam">
 
-    <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    
-    	<!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">--->
-    
+    <!-- Le styles -->    
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <link href="css/daterangepicker.css" rel="stylesheet">
     <link href="css/xcharts.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
@@ -21,11 +18,8 @@
       }
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
-    
-    	<!---<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>--->
-    
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
 	<script type="text/javascript" src="js/daterangepicker.js"></script>
 	<script type="text/javascript" src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
@@ -79,11 +73,9 @@
           <a class="brand">MTA Turnstile Traffic</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a class = "tip" data-toggle="tooltip" title="Hi, I'm Neal Shyam" href="http://www.nealshyam.com" target="_blank">&copy; 2013 Neal Shyam</a></li>
-             <!--- <li><a class = "tip" data-toggle="tooltip" title="I did this for fun!" href="#about">About</a></li>--->
-              <li><a class = "tip" data-toggle="tooltip" title="Tell me what I can do better!" href="mailto:me@nealshyam.com?subject=MTA%20Turnstile%20Data" target="_blank">Feedback</a></li>
+              <li><a class = "tip" data-toggle="tooltip" title="That's my name" href="http://www.nealshyam.com" target="_blank">&copy; 2013 Neal Shyam</a></li>
+              <li><a class = "tip" data-toggle="tooltip" title="Tell me what I can do better!" href="mailto:me@nealshyam.com?subject=MTA%20Turnstile%20Traffic" target="_blank">Feedback</a></li>
               <li><a class = "tip" data-toggle="tooltip" title="Share this with your friends!"><span class='st_facebook_hcount' displayText='Facebook'></span> <span class='st_twitter_hcount' displayText='Tweet'></span> <span class='st_linkedin_hcount' displayText='LinkedIn'></span> <span class='st_email_hcount' displayText='Email'></span></a></li>
-
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -614,7 +606,12 @@
             </span>&nbsp;&nbsp;&nbsp;--->
  			
   			<button class="btn btn-primary chart_button"><i class="icon-bar-chart"> Chart</i></button>&nbsp;&nbsp;&nbsp;
-      		<button class="btn btn-inverse table_button"><i class="icon-table"> Data</i></button>     		
+      		<button class="btn btn-inverse table_button"><i class="icon-table"> Data</i></button>    		
+      	
+      		<!---<div class="btn-group" data-toggle="buttons-radio">
+  				<button class="btn btn-primary chart_button"><i class="icon-bar-chart"> Chart</i></button>
+      			<button class="btn btn-primary table_button"><i class="icon-table"> Data</i></button>
+			</div>--->
       	
       		<span class="pull-right">
       			Current dataset: <span id ="lastupdate" class = "label label-warning"></span>
@@ -624,8 +621,7 @@
       </div>
       
       <div class="row chart_container"> <!--- chart --->
-      	<!---<pre>chart goes here</pre>--->
-      	
+            	
       	<div class="row">
       		<span class="pull-right">
       			<span class = "label" style="background-color:#3880aa;">Entries</span>&nbsp;
@@ -639,10 +635,10 @@
        <div class="row table_container" style="height: 500px; overflow:auto;"> <!--- data table --->
       </div>
       
-      <div class ="row placeholder_container">
+      <div class ="row placeholder_container"> <!--- notes & instructions --->
 	  	<div class="span12">
 	  	<h3>Hi there! This app creates charts & data tables using <a href="http://www.mta.info/developers/turnstile.html" target="_blank">MTA Turnstile data</a>. 
-	  	<br/>Select a station code & time range above to get started.</h3>
+	  	<br/>Select a station code <i class="icon-map-marker"></i> and time range <i class="icon-calendar"></i> to get started.</h3>
 		<p>In case you're wondering, I'm <a href="http://nealshyam.com" target="_blank">Neal Shyam</a> and I like to make <a href="http://nealrs.github.io/LegalGrep" target="_blank">things</a>. You can find me on <a href="https://twitter.com/nealrs" target="_blank">Twitter</a> & <a href="https://github.com/nealrs/" target="_blank">Github</a>. Want this code? <a href="https://github.com/nealrs/MTA" target="_blank">It's all yours</a>.
 		<p>This app is made possible by: 
 		<ul>
@@ -663,10 +659,10 @@
 			<li><a href="http://stackoverflow.com" target="_blank">StackOverflow</a></li>
 		</ul>
 		
-		<p>Please note: Because I'm stripping non-'REGULAR' & off-hour audit events from the MTA data, you may run into some missing data in charts. Rest assured though, I'm working on a solution.</p>
+		<p>Note: I'm stripping non-'REGULAR' & off-hour audit events from the MTA data, so there may be some missing data in charts. Rest assured, I'm working on a solution.</p>
 
       </div> 
-           
+      <script>$(".tip").tooltip({placement:"bottom"})</script>     
     </div> <!-- /container -->
   </body>
 </html>
