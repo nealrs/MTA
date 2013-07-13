@@ -43,15 +43,13 @@ $(document).ready(function() {
             $(".chart_button").click(function() {
                 $(".table_container").hide();
                 $(".placeholder_container").hide();
-                $(".chart_container").show();
-                                                
+                $(".chart_container").show();                           
             });
             
              $(".table_button").click(function() {
                 $(".chart_container").hide();
                 $(".placeholder_container").hide();
-                $(".table_container").show();
-                
+                $(".table_container").show();               
             });
             
              $(".brand").click(function() {
@@ -68,6 +66,9 @@ $(document).ready(function() {
 			/////
 			
 			$('#form').on('submit', function (e) {
+			  
+			  $('.btn').button('loading');
+			  
 			  $.ajax({
 				type: 'get',
 				url: 'get.php',
@@ -83,6 +84,8 @@ $(document).ready(function() {
 			  
 				  //console.log(parsed.table);
 				  dataTable(parsed.table);
+				  
+				  $('.btn').button('reset');
 				  
 				  // csv export
 				  JSON2CSV(parsed.table);
