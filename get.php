@@ -1,15 +1,12 @@
 <?php
 
-if (!empty($_GET["remote"])) {$remote = $_GET["remote"]; } //else {$remote = "R021";}
+if (!empty($_GET["remote"])) {$remote = $_GET["remote"]; }
 
 if (!empty($_GET["dates"])){
 	// transform dates, etc.
 	$start = substr($_GET["dates"], 6,4)."-".substr($_GET["dates"], 0,2)."-".substr($_GET["dates"], 3,2)." 00:00:00";
 	$end = substr($_GET["dates"], 20,4)."-".substr($_GET["dates"], 14,2)."-".substr($_GET["dates"], 17,2);
-} /*else {
-	$start = "2013-02-02 00:00:00";
-	$end = "2013-02-08";
-  }*/
+}
 
 // define a function to go pull the neccesary plot data.
 function get_data($remote, $start, $end){
@@ -141,6 +138,6 @@ function get_data($remote, $start, $end){
 			echo $json;
 }
 
-list($pent,$pex) = get_data($remote, $start, $end);
+get_data($remote, $start, $end);
 
 ?>
