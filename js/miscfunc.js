@@ -130,9 +130,7 @@ function plotChart(data) {
 
 function dataTable(data){
 	// setup data table.
-	
-	var str = "<div class='pull-right'><span onclick = 'downloadCSV()' class = ' tip label label-success' data-toggle='tooltip' title='Download CSV'>Download</span></a>&nbsp;</div><br><br>";
-	str +="<table class='span12 table table-striped table-condensed table-hover table-bordered'><thead><tr><th>Interval Start</th><th>Entries</th><th>Exits</th><th>Interval End</th><th>Entries</th><th>Exits</th></tr></thead><tbody>";
+	var str ="<table class='span12 table table-striped table-condensed table-hover table-bordered'><thead><tr><th>Interval Start</th><th>Entries</th><th>Exits</th><th>Interval End</th><th>Entries</th><th>Exits</th></tr></thead><tbody>";
 			
 			// load data table
 			$.each(data, function(){
@@ -147,8 +145,7 @@ function dataTable(data){
 		// close data table
 		str+= "</tbody></table>";
 	
-	//$('.table_container').show().html(str);
-	$('.table_container').html(str);
+	$('.table_box').html(str);
 }
 
 function JSON2CSV(objArray) {
