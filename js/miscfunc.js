@@ -1,6 +1,6 @@
 $(document).ready(function() {
 			
-			$('#lastupdate').html('12/24/2012 - '+ moment().subtract('days', 7).endOf('week').format('L') );
+			$('#lastupdate').html('12/22/2012 - '+ moment().subtract('days', 7).endOf('week').format('L') );
 			
 			// date picker initilization
 			$('#dates').daterangepicker(
