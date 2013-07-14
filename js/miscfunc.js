@@ -847,32 +847,29 @@ function initialize() {
         
         // spidering
         var oms = new OverlappingMarkerSpiderfier(map);
-        
         var iw = new google.maps.InfoWindow();
+        
 		oms.addListener('click', function(marker, event) {
   			iw.setContent(marker.desc + '<br> Division: ' + marker.division + ', Trains: ' + marker.trains);
   			iw.open(map, marker);
+  			//marker.setIcon('http://geotest.jit.su/assets/marker-red.png');
   			
   			// onclick, set remote code for form & chart title
 			$("#fremote").val( marker.remoteCode );
 			ttitle = marker.desc;
 		});
-		
+				
 		oms.addListener('spiderfy', function(markers) {
   			iw.close();
 		});
-		
-		/*oms.addListener('mouseover',function(marker, event){
-			iw.setContent(marker.desc + '<br> Division: ' + marker.division + ', Trains: ' + marker.trains);
-			iw.open(map, marker);
-		});*/
-		
+
         for (var i = 0; i < locations.length; i ++) {
   			var marker = new google.maps.Marker({
     			position: new google.maps.LatLng(locations[i][2], locations[i][3]),
     			title: locations[i][1]+" - "+locations[i][0],
     			map: map,
-    			icon: 'http://leafletjs.com/dist/images/marker-icon.png'
+    			icon: 'https://s3.amazonaws.com/uploads.hipchat.com/35126/241085/7xg6krkwgnhzaww/blue_75.png'
+    			//icon: 'http://geotest.jit.su/assets/marker-red.png'
   			});
   			marker.desc = locations[i][1]+" - "+locations[i][0];
   			marker.title = locations[i][1]+" - "+locations[i][0];
