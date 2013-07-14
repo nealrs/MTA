@@ -105,6 +105,11 @@ $(document).ready(function() {
                 
             });
             
+            $(".cbtn").click(function() {
+                $(".map_container").slideToggle('slow');
+                $('.toggle_icon').toggle();              
+            });
+            
 			// initially hide both table and chart containers.
 			$(".table_container").hide();
 			$(".chart_container").hide();
@@ -145,7 +150,7 @@ $(document).ready(function() {
 
 
 function submitForm(){			  
-	$('.btn').button('loading');
+	//$('.btn').button('loading');
 	
 	//update form parameters [fremote is set by map marker onclick]
 	$("#fdates").val( $("#pickdate").html() );
@@ -173,7 +178,7 @@ function submitForm(){
 			
 			
 			
-			$('.btn').button('reset');
+			//$('.btn').button('reset');
 								  
 			},
 			
