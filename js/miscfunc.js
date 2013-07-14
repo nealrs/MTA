@@ -819,32 +819,6 @@ function initialize() {
         var map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
         var transitLayer = new google.maps.TransitLayer(); transitLayer.setMap(map);
         
-        /*/////// Setup markers & info windows
-        var infowindow = new google.maps.InfoWindow();
-
-		var marker, i;
-
-		for (i = 0; i < locations.length; i++) {  
-		  marker = new google.maps.Marker({
-			position: new google.maps.LatLng(locations[i][2], locations[i][3]),
-			map: map,
-			//icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
-			title: locations[i][1]+" - "+locations[i][0]
-		  });
-
-		  google.maps.event.addListener(marker, 'click', (function(marker, i) {
-			return function() {
-			  infowindow.setContent(locations[i][1]+" - "+locations[i][0]);
-			  infowindow.open(map, marker);
-			  
-			  // onclick, set remote code for form & chart title
-			  $("#fremote").val( locations[i][0] );
-			  ttitle = locations[i][1]+" - "+locations[i][0];
-			}
-		  })(marker, i));
-		}
-        //////////*/
-        
         // spidering
         var oms = new OverlappingMarkerSpiderfier(map);
         var iw = new google.maps.InfoWindow();
