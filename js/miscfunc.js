@@ -801,7 +801,7 @@ function initialize() {
         var map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
         var transitLayer = new google.maps.TransitLayer(); transitLayer.setMap(map);
         
-        //////// Setup markers & info windows
+        /*/////// Setup markers & info windows
         var infowindow = new google.maps.InfoWindow();
 
 		var marker, i;
@@ -810,7 +810,7 @@ function initialize() {
 		  marker = new google.maps.Marker({
 			position: new google.maps.LatLng(locations[i][2], locations[i][3]),
 			map: map,
-			//icon: '',
+			//icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
 			title: locations[i][1]+" - "+locations[i][0]
 		  });
 
@@ -825,7 +825,32 @@ function initialize() {
 			}
 		  })(marker, i));
 		}
-        //////////
+        //////////*/
+        
+        var oms = new OverlappingMarkerSpiderfier(map);
+        var iw = new google.maps.InfoWindow();
+		oms.addListener('click', function(marker, event) {
+  			iw.setContent(marker.desc);
+  			iw.open(map, marker);
+		});
+		
+		oms.addListener('spiderfy', function(markers) {
+  			iw.close();
+		});
+        
+        for (var i = 0; i < locations.length; i ++) {
+  			//var datum = window.mapData[i];
+  			//var loc = new gm.LatLng(datum.lat, datum.lon);
+  			var marker = new google.maps.Marker({
+    			position: new google.maps.LatLng(locations[i][2], locations[i][3]),
+    			title: locations[i][1]+" - "+locations[i][0],
+    			map: map
+  			});
+  			marker.desc = locations[i][1]+" - "+locations[i][0];
+  			oms.addMarker(marker);  // <-- here
+		}
+        
+        
       }
 google.maps.event.addDomListener(window, 'load', initialize);
 
