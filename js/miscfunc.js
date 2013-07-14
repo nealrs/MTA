@@ -116,7 +116,7 @@ $(document).ready(function() {
 			$(".chart_container").hide();
 			
 			// show modal on initial pageload
-			//$('#aboutmodal').modal('toggle');
+			$('#aboutmodal').modal('toggle');
 			
 			/////
 			
