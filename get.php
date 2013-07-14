@@ -108,10 +108,10 @@ function get_data($remote, $start, $end){
 			$tent = $sum_table[$alt+1][1] - $sum_table[$alt][1]; 				// cumulative entries
 			$tex  = $sum_table[$alt+1][2] - $sum_table[$alt][2]; 				// cumulative exits
 		
-			// if interval value is far out of range (>=40,000 or <0), set to zero and create a hole in the chart instead.
+			// if interval value is far out of range (>=60,000 or <0), set to zero and create a hole in the chart instead.
 			// need to find a better way to adjust for this (what is traffic like at TSQ/busiest station in system?!
-			if ($tent < 0 || $tent >= 40000){$tent = 0; }
-			if ($tex < 0 || $tex >= 40000){$tex = 0;}
+			if ($tent < 0 || $tent >= 60000){$tent = 0; }
+			if ($tex < 0 || $tex >= 60000){$tex = 0;}
 		
 			$plot_ent[$alt]['y'] = $tent; 										// entries [interval] 
 			$plot_ex[$alt]['y'] =  $tex; 										// exits [interval]
