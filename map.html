@@ -91,8 +91,8 @@
         </div>
         
         <div class="control_container"> <!--- chartcontrols --->
-  			
   			<div class="row span3">
+  				<p><strong>Chart subway station entry & exit traffic.</strong>
   				<div id="dates2" style="background: #fff; cursor: pointer; width:250px;">
                   <i class="icon-calendar"></i>
                   <span id ="pickdate"></span> <b class="caret" style="margin-top: 8px"></b>
@@ -127,30 +127,18 @@
     	<div class="row" style="margin-bottom:10px;"><!---- Form Slide Control ---->
     		<div class="pull-right">
     		
-    			<span class="label chart_button toggle_icon" style="display:none; background:#0044cc;">Chart</span>
-    			<span class="label label-inverse table_button toggle_icon" style="display:none;">Table</span>
+    			<span class="label chart_button toggle_icon" style="display:none; background:#0044cc; cursor: pointer;">Chart</span>
+    			<span class="label label-inverse table_button toggle_icon" style="display:none; cursor: pointer;">Table</span>
     			
-    			<span class="label label-warning">
+    			<span class="label label-warning" style="cursor: pointer;">
     				<span id="toggle_control">
-    					<span class ="toggle_icon"><i class="icon-chevron-up"></i></span>
-    					<span class ="toggle_icon" style="display:none;"><i class="icon-chevron-down"></i></span>
+    					<span class ="toggle_icon"><i class="icon-chevron-up" ></i></span>
+    					<span class ="toggle_icon" style="display:none; cursor: pointer;"><i class="icon-chevron-down"></i></span>
     					 Toggle Controls
     				</span>
     			</span>
     		</div>
     	</div>
-    
-      <!-----<div id = "slimline_control" class="row" style="margin-top:10px;">
-      	<div class = "span6 offset3">
-  			<span id="dates2" style="background: #fff; cursor: pointer; width:250px; padding: 5px 10px; ">
-                <i class="icon-calendar"></i>
-                <span id ="pickdate"></span> <b class="caret" style="margin-top: 8px"></b>
-        	</span>&nbsp;&nbsp;&nbsp;		
-  	
-  			<button class="btn btn-primary chart_button" data-loading-text="<i class='icon-spinner icon-spin'></i> Plot Chart"><i class="icon-bar-chart"> Plot Chart</i></button>&nbsp;&nbsp;&nbsp;
-      		<button class="btn btn-inverse table_button" data-loading-text="<i class='icon-spinner icon-spin'></i> Get Data"><i class="icon-table"> Get Data</i></button>  		
-      	</div>
-      </div>----->
       
       <div class="row chart_container"> <!--- chart ---> 	
       	<div class="row">
@@ -177,7 +165,7 @@
       			<strong>Station: <span class="ctitle">Not Selected</span></strong>,&nbsp;
       			<strong>Range: <span class="cdates">Not Selected</span></strong>
       		</span>
-      		<span class='pull-right'><span onclick = 'downloadCSV()' class = ' tip label label-success' data-toggle='tooltip' title='Download CSV'>Download</span></a></span>
+      		<span class='pull-right'><span onclick = 'downloadCSV()' class = ' tip label label-success' data-toggle='tooltip' title='Download CSV' style="cursor: pointer;">Download</span></a></span>
       	</div>
       	<br><br>
       	<div class = "table_box" style="height: 500px; overflow:auto;"></div>
