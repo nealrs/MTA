@@ -827,29 +827,41 @@ function initialize() {
 		}
         //////////*/
         
+        // clustering
+        
+        
+        
+        // spidering
         var oms = new OverlappingMarkerSpiderfier(map);
+        
         var iw = new google.maps.InfoWindow();
 		oms.addListener('click', function(marker, event) {
   			iw.setContent(marker.desc);
   			iw.open(map, marker);
+  			
+  			// onclick, set remote code for form & chart title
+			$("#fremote").val(marker.remoteCode );
+			ttitle = marker.desc;
 		});
 		
 		oms.addListener('spiderfy', function(markers) {
   			iw.close();
 		});
-        
+		
+        //var markers = [];
         for (var i = 0; i < locations.length; i ++) {
-  			//var datum = window.mapData[i];
-  			//var loc = new gm.LatLng(datum.lat, datum.lon);
   			var marker = new google.maps.Marker({
     			position: new google.maps.LatLng(locations[i][2], locations[i][3]),
     			title: locations[i][1]+" - "+locations[i][0],
     			map: map
   			});
   			marker.desc = locations[i][1]+" - "+locations[i][0];
+  			marker.remoteCode = locations[i][0];
   			oms.addMarker(marker);  // <-- here
+  			//markers.push(marker);
 		}
-        
+		
+        //var mc = new MarkerClusterer(map, markers);
         
       }
 google.maps.event.addDomListener(window, 'load', initialize);
