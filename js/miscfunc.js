@@ -100,13 +100,14 @@ $(document).ready(function() {
             });*/
             
             $("#toggle_control").click(function() {
-                $(".map_container").slideToggle('slow');
+                $(".map_container").slideToggle('fast');
                 $('.toggle_icon').toggle();
+                google.maps.event.trigger(map, 'resize');
                 
             });
             
             $(".cbtn").click(function() {
-                $(".map_container").slideToggle('slow');
+                $(".map_container").slideToggle('fast');
                 $('.toggle_icon').toggle();              
             });
             
@@ -148,43 +149,60 @@ $(document).ready(function() {
 			});
 });
 
+function validate(){
+//validate our situation (check if form fields are empty)
+	if ( $("#pickdate").html() == null 
+		|| $("#pickdate").html() == ""
+		|| $("#pickdate").html() == "select date range"  
+		|| $("#fremote").val() == null
+		|| $("#fremote").val() == ""){		
+		
+		//alert("Oops! Please recheck your inputs and try again.");
+		//return null;
+	}
+}
 
 function submitForm(){			  
 	//$('.btn').button('loading');
 	
-	//update form parameters [fremote is set by map marker onclick]
-	$("#fdates").val( $("#pickdate").html() );
+	/*if (validate() == null){
+		alert("Oops! Please recheck your inputs and try again.");
+	} else {*/
 	
-	//set chart title & range
-	$(".ctitle").html( ttitle );
-	$(".cdates").html( $("#fdates").val() );
+		//update form parameters [fremote is set by map marker onclick]
+		$("#fdates").val( $("#pickdate").html() );
+	
+		//set chart title & range
+		$(".ctitle").html( ttitle );
+		$(".cdates").html( $("#fdates").val() );
 	
 	
-	$.ajax({
-		type: 'get',
-		url: 'get.php',
-		data: $('form').serialize(),
-		//data: 'remote=R314&dates=06%2F29%2F2013+to+07%2F06%2F2013',
-		contentType: "application/json",
-		success: function (data) {
+		$.ajax({
+			type: 'get',
+			url: 'get.php',
+			data: $('form').serialize(),
+			//data: 'remote=R314&dates=06%2F29%2F2013+to+07%2F06%2F2013',
+			contentType: "application/json",
+			success: function (data) {
 			  
-			var parsed = jQuery.parseJSON(data);
-			//console.log(parsed);
+				var parsed = jQuery.parseJSON(data);
+				//console.log(parsed);
 			  
-			// ok, now lets plot the chart, write out the data table, and setup the CSV export.
-			plotChart(parsed);
-			dataTable(parsed.table);
-			JSON2CSV(parsed.table);
+				// ok, now lets plot the chart, write out the data table, and setup the CSV export.
+				plotChart(parsed);
+				dataTable(parsed.table);
+				JSON2CSV(parsed.table);
 			
 			
 			
-			//$('.btn').button('reset');
+				//$('.btn').button('reset');
 								  
-			},
+				},
 			
-		error: function(XMLHttpRequest, textStatus, errorThrown) { alert("Oops! Please recheck your inputs and try again.");}
+			error: function(XMLHttpRequest, textStatus, errorThrown) { alert("Oops! Please recheck your inputs and try again.");}
 			
-	});
+		});
+	//}
 }
 
 function plotChart(data) {
@@ -845,7 +863,7 @@ function initialize() {
 		});
 		
 		/*oms.addListener('mouseover',function(marker, event){
-			iw.setContent(marker.desc);
+			iw.setContent(marker.desc + '<br> Division: ' + marker.division + ', Trains: ' + marker.trains);
 			iw.open(map, marker);
 		});*/
 		

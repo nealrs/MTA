@@ -147,29 +147,31 @@
       <div class="row chart_container"> <!--- chart ---> 	
       	<div class="row">
       		
-      		<div class=" offset1">	
-      		<span class="pull-left">
-      			<strong>Station: <span class="ctitle">Not Selected</span></strong>,&nbsp;
-      			<strong>Range: <span class="cdates">Not Selected</span></strong>
-      		</span>
-      		
+      		<div class="">	
       		<span class="pull-right">
       			<!---<span class = "tip label" data-toggle="tooltip" title="As a result of data sanitization, there may be some missing chart data." style="background-color:#000;">Missing Data?</span>&nbsp;--->
       			<span class = "tip label" data-toggle="tooltip" title="4 hour interval" style="background-color:#3880aa;">Entries</span>&nbsp;
       			<span class = "tip label" data-toggle="tooltip" title="4 hour interval" style="background-color:#f26522;">Exits</span>
       		</span>
+      		
+      		<span class="pull-right">
+      			<strong>Station: <span class="ctitle">Not Selected</span></strong>,&nbsp;
+      			<strong>Range: <span class="cdates">Not Selected</span></strong>&nbsp;&nbsp;
+      		</span>
+      		
       		</div>	
       	</div>
         <figure class = "span12" id="chart" style="height: 500px;"></figure>
       </div>
       
       <div class="row table_container" > <!--- data table --->
-      	<div class=" offset1">	
-      		<span class="pull-left">
-      			<strong>Station: <span class="ctitle">Not Selected</span></strong>,&nbsp;
-      			<strong>Range: <span class="cdates">Not Selected</span></strong>
-      		</span>
+      	<div class="">	
       		<span class='pull-right'><span onclick = 'downloadCSV()' class = ' tip label label-success' data-toggle='tooltip' title='Download CSV' style="cursor: pointer;">Download</span></a></span>
+      	
+      		<span class="pull-right">
+      			<strong>Station: <span class="ctitle">Not Selected</span></strong>,&nbsp;
+      			<strong>Range: <span class="cdates">Not Selected</span></strong>&nbsp;&nbsp;
+      		</span>
       	</div>
       	<br><br>
       	<div class = "table_box" style="height: 500px; overflow:auto;"></div>
