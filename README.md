@@ -1,7 +1,7 @@
 Create charts & data tables using <a href="http://www.mta.info/developers/turnstile.html" target="_blank">MTA Turnstile data</a>. 
 	<br/><a href="http://nealshyam.com/mta">The live app is here</a>. Select a station code & time range to get started.
 	<p>Please note: because the scripts strip non-'REGULAR' & off-hour audit events from the MTA data, you'll occasionally find some missing data points on the chart. I'm working on a solution.</p>
-	<p>In case you're wondering, I'm <a href="http://nealshyam.com" target="_blank">Neal Shyam</a> and I like to make <a href="http://nealrs.github.io/LegalGrep" target="_blank">things</a>. You can find me on <a href="https://twitter.com/nealrs" target="_blank">Twitter</a> & <a href="https://github.com/nealrs/" target="_blank">Github</a>. Want this code? <a href="https://github.com/nealrs/MTA" target="_blank">It's all yours</a>.
+	<p>In case you're wondering, I'm <a href="http://nealshyam.com" target="_blank">Neal Shyam</a> and I like to make <a href="http://nealrs.github.io/LegalGrep" target="_blank">things</a>. You can find me on <a href="https://twitter.com/nealrs" target="_blank">Twitter</a>, <a href="https://github.com/nealrs/" target="_blank">Github</a>, and <a href="http://linkedin.com/in/nealrs/" target="_blank">LinkedIn</a>. Want this code? <a href="https://github.com/nealrs/MTA" target="_blank">It's all yours</a>.
 	<p>Please note: Because I'm stripping non-'REGULAR' & off-hour audit events from the MTA data, you may run into some missing data in charts. Rest assured though, I'm working on a solution.</p>
 	<p>This app is made possible by: 
 	<ul>

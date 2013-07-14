@@ -39,29 +39,78 @@ $(document).ready(function() {
                   //Set the initial state of the picker label
                   $('#dates2 span').html(moment().subtract('days', 7).startOf('week').subtract('days', 1).format('MMMM D, YYYY') + ' - ' + moment().subtract('days', 7).endOf('week').format('MMMM D, YYYY'));
 
+			$('#dates2').daterangepicker(
+                     {
+                        ranges: {
+                           'Last Week': [moment().subtract('days', 7).startOf('week').subtract('days', 1), moment().subtract('days', 7).endOf('week')], <!--- need to subtract 1 from each date here.--->
+                           'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')],
+                           //'Last 3 Months': [moment().subtract('month', 3).startOf('month'), moment().subtract('month', 1).endOf('month')]
+                        },
+                        opens: 'left',
+                        format: 'MM/DD/YYYY',
+                        separator: ' to ',
+                        startDate: moment().subtract('days', 7).startOf('week').subtract('days', 1),
+                        endDate: moment().subtract('days', 7).endOf('week'),
+                        minDate: '12/24/2012',
+                        maxDate: moment().subtract('days', 7).endOf('week'),
+                        locale: {
+                            applyLabel: 'Submit',
+                            fromLabel: 'From',
+                            toLabel: 'To',
+                            customRangeLabel: 'Custom Range',
+                            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr','Sa'],
+                            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                            firstDay: 0
+                        },
+                        showWeekNumbers: true,
+                        buttonClasses: ['btn-danger'],
+                        dateLimit: { days: 62 }
+                     },
+                     function(start, end) {
+                        $('#dates2 span').html(start.format('MM/DD/YYYY') + ' to ' + end.format('MM/DD/YYYY'));
+                     }
+                  );
+                  //Set the initial state of the picker label
+                  $('#dates2 span').html('Select date range');
+
+
             
             $(".chart_button").click(function() {
                 $(".table_container").hide();
-                $(".placeholder_container").hide();
-                $(".chart_container").show();                           
+                //$(".placeholder_container").hide();
+                $(".chart_container").show();
+                
+                submitForm();
+                                           
             });
             
              $(".table_button").click(function() {
                 $(".chart_container").hide();
-                $(".placeholder_container").hide();
-                $(".table_container").show();               
+                //$(".placeholder_container").hide();
+                $(".table_container").show();
+                
+                submitForm();               
             });
             
              $(".brand").click(function() {
-                $(".placeholder_container").show();
+                $(".map_container").show();
                 $(".chart_container").hide();
                 $(".table_container").hide();
+                
+            });
+            
+            $("#toggle_control").click(function() {
+                $(".map_container").slideToggle('slow');
+                $('.toggle_icon').toggle();
                 
             });
             
 			// initially hide both table and chart containers.
 			$(".table_container").hide();
 			$(".chart_container").hide();
+			
+			// show modal on initial pageload
+			//$('#aboutmodal').modal('toggle');
 			
 			/////
 			
@@ -99,6 +148,42 @@ $(document).ready(function() {
 			});
 });
 
+
+function submitForm(){			  
+	
+	$("#fremote").val('R314');
+	//$("#fdates").val('06/29/2013 to 07/06/2013');
+	$("#fdates").val( $("#pickdate").html() );
+	//$('.btn').button('loading');
+	
+	$.ajax({
+		type: 'get',
+		url: 'get.php',
+		data: $('form').serialize(),
+		//data: 'remote=R314&dates=06%2F29%2F2013+to+07%2F06%2F2013',
+		contentType: "application/json",
+		success: function (data) {
+			  
+			var parsed = jQuery.parseJSON(data);
+			//console.log(parsed);
+			  
+			// ok, now lets plot the chart and write out the data table.
+			plotChart(parsed);
+			  
+			//console.log(parsed.table);
+			dataTable(parsed.table);
+			
+			//$('.btn').button('reset');
+							  
+			// csv export
+			JSON2CSV(parsed.table);
+								  
+			},
+			
+		error: function(XMLHttpRequest, textStatus, errorThrown) { alert("Oops! Please recheck your inputs and try again.");}
+			
+	});
+}
 
 function plotChart(data) {
       // setup chart data
@@ -181,12 +266,30 @@ function JSON2CSV(objArray) {
     //window.open("data:text/csv;charset=utf-8," + escape(str))
 }
 
-
 function downloadCSV() {
 	window.open("data:text/csv;charset=utf-8," + escape(csv_data))
 }
 // setup global csv variable.
 var csv_data = "";    
 
+// google maps code
+function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(40.7773, -73.9705),
+          zoom: 12,
+          
+          disableDefaultUI: true,
+          
+          zoomControl: true,
+    	  zoomControlOptions: {
+      	  	style: google.maps.ZoomControlStyle.SMALL
+    	  },
+    	  
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var transitLayer = new google.maps.TransitLayer(); transitLayer.setMap(map);
+      }
+google.maps.event.addDomListener(window, 'load', initialize);
 
 
