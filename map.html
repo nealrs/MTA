@@ -18,6 +18,11 @@
     <link href="css/xcharts.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     
+    <style> <!--- Oh Bootstrap, you need to play better with google maps!--->
+    	#mapCanvas img { max-width: none !important; }
+    	#mapCanvas label { width: auto; display:inline !important; } 
+    </style>
+    
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
@@ -87,7 +92,7 @@
     
       <div class ="row map_container"> <!--- map & form controls --->
 	  	<div class="span9">
-	  		<div id="map" style="width: 100%; height: 400px;"></div>
+	  		<div id="mapCanvas" style="width: 100%; height: 400px;"></div>
         </div>
         
         <div class="control_container"> <!--- chartcontrols --->

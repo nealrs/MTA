@@ -269,6 +269,7 @@ function downloadCSV() {
 var csv_data = "";    
 
 // google maps code
+google.maps.visualRefresh = true;
 function initialize() {
         var mapOptions = {
           center: new google.maps.LatLng(40.7773, -73.9705),
@@ -283,7 +284,7 @@ function initialize() {
     	  
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
         var transitLayer = new google.maps.TransitLayer(); transitLayer.setMap(map);
       }
 google.maps.event.addDomListener(window, 'load', initialize);
