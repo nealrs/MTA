@@ -92,12 +92,12 @@ $(document).ready(function() {
                 submitForm();               
             });
             
-             $(".brand").click(function() {
+             /*$(".brand").click(function() {
                 $(".map_container").show();
                 $(".chart_container").hide();
                 $(".table_container").hide();
                 
-            });
+            });*/
             
             $("#toggle_control").click(function() {
                 $(".map_container").slideToggle('slow');
@@ -128,17 +128,12 @@ $(document).ready(function() {
 				  var parsed = jQuery.parseJSON(data);
 				  //console.log(parsed);
 			  
-				  // ok, now lets plot the chart and write out the data table.
+				  // ok, now lets plot the chart, write out the data table, and setup a CSV export.
 				  plotChart(parsed);
-			  
-				  //console.log(parsed.table);
 				  dataTable(parsed.table);
-				  
-				  $('.btn').button('reset');
-				  
-				  // csv export
 				  JSON2CSV(parsed.table);
-								  
+				  
+				  $('.btn').button('reset');			  
 				},
 			
 				error: function(XMLHttpRequest, textStatus, errorThrown) { alert("Oops! Please recheck your inputs and try again.");}
@@ -150,10 +145,13 @@ $(document).ready(function() {
 
 
 function submitForm(){			  
-	
-	$("#fremote").val('R314');
-	//$("#fdates").val('06/29/2013 to 07/06/2013');
+	//update form parameters
+	$("#fremote").val('R290');
 	$("#fdates").val( $("#pickdate").html() );
+	
+	//set chart title & range
+	$(".ctitle").html( $("#fremote").val() );
+	$(".cdates").html( $("#fdates").val() );
 	//$('.btn').button('loading');
 	
 	$.ajax({
@@ -167,16 +165,14 @@ function submitForm(){
 			var parsed = jQuery.parseJSON(data);
 			//console.log(parsed);
 			  
-			// ok, now lets plot the chart and write out the data table.
+			// ok, now lets plot the chart, write out the data table, and setup the CSV export.
 			plotChart(parsed);
-			  
-			//console.log(parsed.table);
 			dataTable(parsed.table);
+			JSON2CSV(parsed.table);
+			
+			
 			
 			//$('.btn').button('reset');
-							  
-			// csv export
-			JSON2CSV(parsed.table);
 								  
 			},
 			
