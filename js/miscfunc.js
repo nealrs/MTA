@@ -77,7 +77,7 @@ $(document).ready(function() {
             
             $(".chart_button").click(function() {
                 $(".table_container").hide();
-                //$(".placeholder_container").hide();
+                $(".placeholder_container").hide();
                 $(".chart_container").show();
                 
                 submitForm();
@@ -86,7 +86,7 @@ $(document).ready(function() {
             
              $(".table_button").click(function() {
                 $(".chart_container").hide();
-                //$(".placeholder_container").hide();
+                $(".placeholder_container").hide();
                 $(".table_container").show();
                 
                 submitForm();               
