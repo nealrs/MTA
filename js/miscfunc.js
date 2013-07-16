@@ -319,8 +319,7 @@ var locations = [
 		['R305', 'CORTLANDT ST', 40.710454, -74.011324,' IRT', '1'],
 		['R088', 'CORTLANDT ST', 40.710662, -74.011052,' BMT', 'R'],
 		['R125', 'BROAD ST', 40.706539, -74.011052,' BMT', 'JZ'],
-		['R540', 'PATH WTC', 40.711638, -74.010708,' PTH', '1'],
-		['R540', 'PATH WTC 2', 40.711638, -74.010708,' PTH', '1'],
+		['R540', 'PATH WTC / PATH WTC 2', 40.711638, -74.010708,' PTH', '1'],
 		['R232', '45 ST', 40.648866, -74.010086,' BMT', 'R'],
 		['R029', 'WORLD TRADE CTR', 40.712557, -74.009807,' IND', '23ACE'],
 		['R030', 'CHAMBERS ST', 40.715436, -74.009335,' IRT', '123'],
@@ -328,29 +327,22 @@ var locations = [
 		['R029', 'PARK PLACE', 40.713061, -74.008777,' IRT', '23ACE'],
 		['R029', 'CHAMBERS ST', 40.71433, -74.008563,' IND', 'ACE23'],
 		['R002', 'FULTON ST', 40.709938, -74.007983,' BMT', 'ACJZ2345'],
-		['R014', 'FULTON ST', 40.709938, -74.007983,' IND', 'ACJZ2345'],
-		['R014', 'FULTON ST', 40.709938, -74.007983,' IRT', 'ACJZ2345'],
-		['R014', 'FULTON ST', 40.709938, -74.007983,' IRT', '2345ACJZ'],
+		['R014', 'FULTON ST', 40.709938, -74.007983,' IND / IRT', 'ACJZ2345'],
 		['R028', 'FULTON ST', 40.709938, -74.007983,' IRT', '2345ACJZ'],
-		['R087', "MURRAY ST-B'WAY", 40.713086, -74.007232,' BMT', 'R'],
+		['R087', 'MURRAY ST-B\'WAY', 40.713086, -74.007232,' BMT', 'R'],
 		['R343', 'FRANKLIN ST', 40.719323, -74.006953,' IRT', '1'],
 		['R320', 'CANAL ST', 40.722819, -74.006267,' IRT', '1'],
 		['R391', 'FT HAMILTON PKY', 40.631428, -74.005387,' BMT', 'N'],
 		['R290', 'HOUSTON ST', 40.728202, -74.005344,' IRT', '1'],
 		['R139', 'CANAL ST', 40.720852, -74.005237,' IND', 'ACE'],
-		['R044', 'CHAMBERS ST', 40.713159, -74.003917,' BMT', '456JZ'],
-		['R044', 'CHAMBERS ST', 40.713159, -74.003917,' BMT', 'JZ456'],
-		['R044', 'BROOKLYN BRIDGE', 40.713159, -74.003917,' IRT', '456JZ'],
-		['R044', 'BROOKLYN BRIDGE', 40.713159, -74.003917,' IRT', 'JZ456'],
+		['R044', 'CHAMBERS ST / BROOKLYN BRIDGE', 40.713159, -74.003917,' BMT / IRT', '456JZ'],
 		['R282', 'SPRING ST', 40.726202, -74.003627,' IND', 'CE'],
 		['R197', '36 ST', 40.65515, -74.003477,' BMT', 'DNR'],
 		['R189', 'CHRISTOPHER ST', 40.733405, -74.002898,' IRT', '1'],
-		['R175', '8 AVE', 40.740388, -74.002104,' BMT', 'ACEL'],
-		['R175', '14 ST', 40.740388, -74.002104,' IND', 'ACEL'],
+		['R175', '8 AVE / 14 ST', 40.740388, -74.002104,' BMT / IND', 'ACEL'],
 		['R372', '18 AVE', 40.607958, -74.001782,' BMT', 'D'],
 		['R462', 'CANAL ST', 40.718697, -74.000977,' BMT', 'JNQRZ6'],
-		['R463', 'CANAL ST', 40.718697, -74.000977,' BMT', 'JNQRZ6'],
-		['R463', 'CANAL ST', 40.718697, -74.000977,' IRT', 'JNQRZ6'],
+		['R463', 'CANAL ST', 40.718697, -74.000977,' BMT / IRT', 'JNQRZ6'],
 		['R371', '79 ST', 40.613513, -74.000645,' BMT', 'D'],
 		['R138', 'W 4 ST-WASH SQ', 40.732251, -74.000559,' IND', 'ABCDEFM'],
 		['R118', 'CANAL ST', 40.718233, -74.000323,' BMT', 'JNQRZ6'],
@@ -361,10 +353,9 @@ var locations = [
 		['R111', '23 ST', 40.745924, -73.998005,' IND', 'CE'],
 		['R455', '25 ST', 40.66043, -73.997944,' BMT', 'R'],
 		['R321', '18 ST', 40.741096, -73.997877,' IRT', '1'],
-		['R086', "PRINCE ST-B'WAY", 40.724332, -73.997684,' BMT', 'NR'],
+		['R086', 'PRINCE ST-B\'WAY', 40.724332, -73.997684,' BMT', 'NR'],
 		['R322', 'SPRING ST', 40.722397, -73.997211,' IRT', '6'],
-		['R163', '6 AVE', 40.737348, -73.9969,' BMT', 'FLM123'],
-		['R163', '14 ST-6 AVE', 40.737348, -73.9969,' IND', 'FLM123'],
+		['R163', '14 ST-6 AVE', 40.737348, -73.9969,' IND / BMT', 'FLM123'],
 		['R545', '14TH STREET', 40.737434, -73.996785,' PTH', '1'],
 		['R398', 'NEW UTRECHT AVE', 40.625419, -73.996632,' BMT', 'ND'],
 		['R461', 'BROADWAY/LAFAY', 40.725297, -73.996204,' IND', 'BDFQ6'],
@@ -389,34 +380,25 @@ var locations = [
 		['R246', 'PROSPECT AVE', 40.665438, -73.992856,' BMT', 'R'],
 		['R203', '23 ST-6 AVE', 40.742868, -73.99277,' IND', 'FM'],
 		['R453', '23 ST-6 AVE', 40.742981, -73.992727,' IND', 'FM'],
-		['R085', "8 ST-B'WAY NYU", 40.730348, -73.992705,' BMT', 'NR'],
+		['R085', '8 ST-B\'WAY NYU', 40.730348, -73.992705,' BMT', 'NR'],
 		['R031', '34 ST-PENN STA', 40.750329, -73.991096,' IRT', '123'],
 		['R160', 'ASTOR PLACE', 40.730056, -73.991042,' IRT', '6'],
 		['R129', 'BERGEN ST', 40.686154, -73.990881,' IND', 'FG'],
-		['R170', '14 ST-UNION SQ', 40.734836, -73.990688,' BMT', 'LNQR456'],
-		['R170', '14 ST-UNION SQ', 40.734836, -73.990688,' BMT', '456LNQR'],
-		['R170', '14 ST-UNION SQ', 40.734836, -73.990688,' BMT', 'LNRQ456'],
-		['R170', '14 ST-UNION SQ', 40.734836, -73.990688,' IRT', 'LNQR456'],
+		['R170', '14 ST-UNION SQ', 40.734836, -73.990688,' BMT / IRT', 'LNQR456'],
 		['R252', 'HIGH ST', 40.699316, -73.990474,' IND', 'AC'],
 		['R392', '18 AVE', 40.620728, -73.990388,' BMT', 'N'],
 		['R257', 'EAST BROADWAY', 40.713647, -73.990152,' IND', 'F'],
-		['R108', 'BOROUGH HALL/CT', 40.692404, -73.990151,' BMT', '2345R'],
-		['R108', 'BOROUGH HALL/CT', 40.692404, -73.990151,' IRT', '2345R'],
-		['R108', 'BOROUGH HALL/CT', 40.692404, -73.990151,' IRT', 'R2345'],
+		['R108', 'BOROUGH HALL/CT', 40.692404, -73.990151,' BMT / IRT', '2345R'],
 		['R300', '2 AVE', 40.723291, -73.989873,' IND', 'F'],
 		['R010', '42 ST-PA BUS TE', 40.757303, -73.989787,' IND', 'ACENQRS1237'],
 		['R011', '42 ST-PA BUS TE', 40.757303, -73.989787,' IND', 'ACENQRS1237'],
 		['R083', '23 ST-5 AVE', 40.741006, -73.989315,' BMT', 'NR'],
-		['R258', '9 ST', 40.67032, -73.988757,' BMT', 'DFGMNR'],
-		['R258', '4 AVE', 40.67032, -73.988757,' IND', 'DFGMNR'],
+		['R258', '4 AVE / 9 ST', 40.67032, -73.988757,' BMT / IND', 'DFGMNR'],
 		['R082', '28 ST-BROADWAY', 40.745574, -73.988682,' BMT', 'NR'],
 		['R541', 'THIRTY THIRD ST', 40.748931, -73.988113,' PTH', '1'],
-		['R022', '34 ST-HERALD SQ', 40.749533, -73.987899,' BMT', 'BDFMNQR'],
-		['R023', '34 ST-HERALD SQ', 40.749533, -73.987899,' BMT', 'BDFMNQR'],
-		['R022', '34 ST-HERALD SQ', 40.749533, -73.987899,' IND', 'BDFMNQR'],
-		['R023', '34 ST-HERALD SQ', 40.749533, -73.987899,' IND', 'BDFMNQR'],
-		['R142', 'ESSEX ST', 40.71838, -73.987813,' BMT', 'FJMZ'],
-		['R142', 'DELANCEY ST', 40.71838, -73.987813,' IND', 'FJMZ'],
+		['R022', '34 ST-HERALD SQ', 40.749533, -73.987899,' BMT / IND', 'BDFMNQR'],
+		['R023', '34 ST-HERALD SQ', 40.749533, -73.987899,' BMT / IND', 'BDFMNQR'],
+		['R142', 'ESSEX ST / DELANCEY ST', 40.71838, -73.987813,' BMT / IND', 'FJMZ'],
 		['R127', 'JAY ST-METROTEC', 40.692338, -73.987342,' IND', 'ACF'],
 		['R330', '3 AVE', 40.733243, -73.987169,' BMT', 'L'],
 		['R399', '25 AVE', 40.597873, -73.986955,' BMT', 'D'],
@@ -442,9 +424,7 @@ var locations = [
 		['R394', 'BAY PKY-22 AVE', 40.612006, -73.982009,' BMT', 'N'],
 		['R054', '5 AVE-BRYANT PK', 40.753824, -73.981966,' IRT', '7BDFM'],
 		['R452', '72 ST', 40.778575, -73.981912,' IRT', '123'],
-		['R084', '59 ST-COLUMBUS', 40.76811, -73.981891,' IND', '1ABCD'],
-		['R084', '59 ST-COLUMBUS', 40.76811, -73.981891,' IND', 'ABCD1'],
-		['R084', '59 ST-COLUMBUS', 40.76811, -73.981891,' IRT', '1ABCD'],
+		['R084', '59 ST-COLUMBUS', 40.76811, -73.981891,' IND / IRT', '1ABCD'],
 		['R099', 'DEKALB AVE', 40.690612, -73.981848,' BMT', 'BDNQR'],
 		['R176', '33 ST', 40.746119, -73.981826,' IRT', '6'],
 		['R248', '1 AVE', 40.730901, -73.981719,' BMT', 'L'],
@@ -462,10 +442,7 @@ var locations = [
 		['R397', '86 ST', 40.592676, -73.978243,' BMT', 'N'],
 		['R420', 'DITMAS AVE', 40.63615, -73.978179,' IND', 'F'],
 		['R302', '57 ST', 40.763625, -73.977449,' IND', 'F'],
-		['R057', 'ATLANTIC AVE', 40.684063, -73.977417,' BMT', '2345BDNQR'],
-		['R057', 'ATLANTIC AVE', 40.684063, -73.977417,' BMT', 'BDNQR2345'],
-		['R057', 'PACIFIC ST', 40.684063, -73.977417,' BMT', 'BDNQR2345'],
-		['R057', 'ATLANTIC AVE', 40.684063, -73.977417,' IRT', '2345BDNQR'],
+		['R057', 'ATLANTIC AVE / PACIFIC ST', 40.684063, -73.977417,' BMT / IRT', '2345BDNQR'],
 		['R242', '18 AVE', 40.629881, -73.977149,' IND', 'F'],
 		['R045', '42 ST-GRD CNTRL', 40.751849, -73.976945,' IRT', '4567S'],
 		['R046', '42 ST-GRD CNTRL', 40.751849, -73.976945,' IRT', '4567S'],
@@ -498,10 +475,8 @@ var locations = [
 		['R186', '86 ST', 40.785822, -73.968952,' IND', 'BC'],
 		['R264', 'OCEAN PARKWAY', 40.576298, -73.968523,' BMT', 'Q'],
 		['R191', '103 ST', 40.799354, -73.968329,' IRT', '1'],
-		['R050', 'LEXINGTON AVE', 40.762796, -73.967686,' BMT', '456NQR'],
-		['R051', 'LEXINGTON AVE', 40.762796, -73.967686,' BMT', '456NQR'],
-		['R050', '59 ST', 40.762796, -73.967686,' IRT', '456NQR'],
-		['R051', '59 ST', 40.762796, -73.967686,' IRT', '456NQR'],
+		['R050', 'LEXINGTON AVE / 59 ST', 40.762796, -73.967686,' BMT / IRT', '456NQR'],
+		['R051', 'LEXINGTON AVE / 59 ST', 40.762796, -73.967686,' BMT / IRT', '456NQR'],
 		['R317', 'CLINTON-WASH AV', 40.688123, -73.966742,' IND', 'G'],
 		['R192', '110 ST-CATHEDRL', 40.804032, -73.966742,' IRT', '1'],
 		['R319', 'LEXINGTON AVE', 40.764763, -73.966291,' IND', 'F'],
@@ -547,8 +522,7 @@ var locations = [
 		['R259', 'ROOSEVELT IS', 40.759123, -73.953266,' IND', 'F'],
 		['R102', '125 ST', 40.811056, -73.952386,' IND', 'ACBD'],
 		['R323', '110 ST-CPN', 40.79911, -73.951807,' IRT', '23'],
-		['R268', 'LORIMER ST', 40.713875, -73.951592,' BMT', 'GL'],
-		['R268', 'METROPOLITAN AV', 40.713875, -73.951592,' IND', 'GL'],
+		['R268', 'LORIMER ST / METROPOLITAN AV', 40.713875, -73.951592,' BMT / IND', 'GL'],
 		['R256', 'NASSAU AV', 40.724608, -73.951271,' IND', 'G'],
 		['R144', '96 ST', 40.785822, -73.95097,' IRT', '6'],
 		['R277', 'PRESIDENT ST', 40.667879, -73.950648,' IRT', '25'],
@@ -572,8 +546,7 @@ var locations = [
 		['R353', 'LORIMER ST', 40.703855, -73.947387,' BMT', 'JM'],
 		['R206', '125 ST', 40.808076, -73.945906,' IRT', '23'],
 		['R346', 'COURT SQ', 40.747029, -73.94537,' IRT', '7'],
-		['R359', 'COURT SQ-23 ST', 40.747257, -73.945112,' IND', 'EMG'],
-		['R359', 'COURT SQ', 40.747257, -73.945112,' IND', 'EMG'],
+		['R359', 'COURT SQ-23 ST / COURT SQ', 40.747257, -73.945112,' IND', 'EMG'],
 		['R193', '157 ST', 40.833879, -73.944726,' IRT', '1'],
 		['R181', '110 ST', 40.795066, -73.944297,' IRT', '6'],
 		['R101', '145 ST', 40.824787, -73.944232,' IND', 'ABCD'],
@@ -587,9 +560,7 @@ var locations = [
 		['R199', 'KINGSTON-THROOP', 40.679921, -73.940858,' IND', 'C'],
 		['R250', 'GRAND ST', 40.711874, -73.94067,' BMT', 'L'],
 		['R121', 'QUEENSBORO PLZ', 40.750508, -73.940177,' IRT', '7NQ'],
-		['R035', '168 ST-BROADWAY', 40.840778, -73.940091,' IND', '1AC'],
-		['R035', '168 ST-BROADWAY', 40.840778, -73.940091,' IND', 'AC1'],
-		['R035', '168 ST-BROADWAY', 40.840778, -73.940091,' IRT', '1AC'],
+		['R035', '168 ST-BROADWAY', 40.840778, -73.940091,' IND / IRT', '1AC'],
 		['R265', 'MONTROSE AVE', 40.707889, -73.940005,' BMT', 'L'],
 		['R296', '163 ST-AMSTERDM', 40.835957, -73.939898,' IND', 'C'],
 		['R126', '175 ST', 40.847369, -73.939683,' IND', 'A'],
@@ -616,9 +587,7 @@ var locations = [
 		['R185', 'DYCKMAN-200 ST', 40.865286, -73.92698,' IND', 'A'],
 		['R205', '149 ST-GR CONC', 40.818429, -73.926927,' IRT', '245'],
 		['R445', '138 ST-3 AVE', 40.810512, -73.926165,' IRT', '6'],
-		['R195', '161 ST-YANKEE', 40.827888, -73.925736,' IND', 'BD4'],
-		['R195', '161 ST-YANKEE', 40.827888, -73.925736,' IRT', 'BD4'],
-		['R195', '161 ST-YANKEE', 40.827888, -73.925736,' IRT', '4BD'],
+		['R195', '161 ST-YANKEE', 40.827888, -73.925736,' IND / IRT', 'BD4'],
 		['R036', 'DYCKMAN ST', 40.860523, -73.925575,' IRT', '1'],
 		['R092', 'BROADWAY-31 ST', 40.761959, -73.925382,' BMT', 'NQ'],
 		['R261', '40 ST-LOWERY ST', 40.743778, -73.923998,' IRT', '7'],
@@ -695,8 +664,7 @@ var locations = [
 		['R408', 'SIMPSON ST', 40.82417, -73.893228,' IRT', '25'],
 		['R409', 'FREEMAN ST', 40.829966, -73.891876,' IRT', '25'],
 		['R434', 'VAN SICLEN AVE', 40.678018, -73.891726,' BMT', 'JZ'],
-		['R018', 'ROOSEVELT AVE', 40.746655, -73.891361,' IND', 'EFMR7'],
-		['R018', '74 ST-BROADWAY', 40.746655, -73.891361,' IRT', 'EFMR7'],
+		['R018', 'ROOSEVELT AVE / 74 ST-BROADWAY', 40.746655, -73.891361,' IND / IRT', 'EFMR7'],
 		['R146', 'HUNTS POINT AVE', 40.820889, -73.890567,' IRT', '6'],
 		['R441', 'VAN SICLEN AVE', 40.672786, -73.890438,' IND', 'C'],
 		['R183', 'BEDFORD PARK BL', 40.873399, -73.890084,' IRT', '4'],
@@ -798,8 +766,7 @@ var locations = [
 		['R358', 'BEACH 25 ST', 40.600138, -73.76152,' IND', 'A'],
 		['R285', 'FAR ROCKAWAY', 40.603983, -73.755383,' IND', 'A'],
 		['R253', '174-175 ST', 40.845892, -73.910136,' IND', 'BD'],
-		['R001', 'WHITEHALL ST', 40.703082, -74.012983,' BMT', 'R1'],
-		['R001', 'SOUTH FERRY', 40.703082, -74.012983,' IRT', 'R1']
+		['R001', 'WHITEHALL ST / SOUTH FERRY', 40.703082, -74.012983,' BMT / IRT', 'R1'],
     ];
 
 function initialize() {
@@ -824,7 +791,7 @@ function initialize() {
         var iw = new google.maps.InfoWindow();
         
 		oms.addListener('click', function(marker, event) {
-  			iw.setContent(marker.desc + '<br> Division: ' + marker.division + ', Trains: ' + marker.trains);
+  			iw.setContent('<strong>'+ marker.desc + '</strong><br>'+ marker.trains);
   			iw.open(map, marker);
   			//marker.setIcon('http://geotest.jit.su/assets/marker-red.png');
   			
@@ -849,7 +816,7 @@ function initialize() {
   			marker.title = locations[i][1]+" - "+locations[i][0];
   			marker.remoteCode = locations[i][0];
   			marker.division = locations[i][4];
-  			marker.trains = locations[i][5];
+  			marker.trains = trains(locations[i][5]);
   			oms.addMarker(marker);  
 		}        
       }
@@ -857,3 +824,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 var ttitle;
 
+function trains(trainlist){
+
+	var trains = jQuery.map((trainlist + '').split(''), function(n) {
+	  return '<img style="vertical-align:text-top;" src="http://www.mta.info/siteimages/subwaybullets/' + n.toLowerCase() + '.png">&nbsp;'
+	});
+	
+	trains = trains.join('');
+	//console.log(trains);
+	return trains;
+}
