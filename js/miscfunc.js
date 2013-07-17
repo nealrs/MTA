@@ -174,7 +174,9 @@ function submitForm(){
 	
 		//set chart title & range
 		$(".ctitle").html( ttitle );
+		$(".ctrains").html(ttrains);
 		$(".cdates").html( $("#fdates").val() );
+		
 	
 	
 		$.ajax({
@@ -798,6 +800,7 @@ function initialize() {
   			// onclick, set remote code for form & chart title
 			$("#fremote").val( marker.remoteCode );
 			ttitle = marker.desc;
+			ttrains = marker.trains;
 		});
 				
 		oms.addListener('spiderfy', function(markers) {

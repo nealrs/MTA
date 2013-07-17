@@ -145,38 +145,37 @@
     	</div>
       
       <div class="row chart_container"> <!--- chart ---> 	
-      	<div class="row">
       		
-      		<div class="">	
-      		<span class="pull-right">
-      			<!---<span class = "tip label" data-toggle="tooltip" title="As a result of data sanitization, there may be some missing chart data." style="background-color:#000;">Missing Data?</span>&nbsp;--->
-      			<span class = "tip label" data-toggle="tooltip" title="4 hour interval" style="background-color:#3880aa;">Entries</span>&nbsp;
-      			<span class = "tip label" data-toggle="tooltip" title="4 hour interval" style="background-color:#f26522;">Exits</span>
-      		</span>
+		<div class="span8 ">
+			<strong>Station: <span class="ctitle">Not Selected</span></strong>,&nbsp;
+			<strong>Trains: <span class="ctrains">Not Selected</span></strong>,&nbsp;
+			<strong>Range: <span class="cdates">Not Selected</span></strong>&nbsp;&nbsp;
+		</div>
       		
-      		<span class="pull-right">
-      			<strong>Station: <span class="ctitle">Not Selected</span></strong>,&nbsp;
-      			<strong>Range: <span class="cdates">Not Selected</span></strong>&nbsp;&nbsp;
-      		</span>
+		<div class="span4">
+			<span class='pull-right'>
+				<!---<span class = "tip label" data-toggle="tooltip" title="As a result of data sanitization, there may be some missing chart data." style="background-color:#000;">Missing Data?</span>&nbsp;--->
+				<span class = "tip label" data-toggle="tooltip" title="4 hour interval" style="background-color:#3880aa;">Entries</span>&nbsp;
+				<span class = "tip label" data-toggle="tooltip" title="4 hour interval" style="background-color:#f26522;">Exits</span>
+			</span>
+		</div>
       		
-      		</div>	
-      	</div>
         <figure class = "span12" id="chart" style="height: 500px;"></figure>
       </div>
       
       <div class="row table_container" > <!--- data table --->
-      	<div class="">	
-      		<span class='pull-right'><span onclick = 'downloadCSV()' class = ' tip label label-success' data-toggle='tooltip' title='Download CSV' style="cursor: pointer;">Download</span></a></span>
-      	
-      		<span class="pull-right">
-      			<strong>Station: <span class="ctitle">Not Selected</span></strong>,&nbsp;
-      			<strong>Range: <span class="cdates">Not Selected</span></strong>&nbsp;&nbsp;
-      		</span>
-      	</div>
+		<div class="span8 ">
+			<strong>Station: <span class="ctitle">Not Selected</span></strong>,&nbsp;
+			<strong>Trains: <span class="ctrains">Not Selected</span></strong>,&nbsp;
+			<strong>Range: <span class="cdates">Not Selected</span></strong>&nbsp;&nbsp;
+		</div>
+		
+		<div class="span4"><span onclick = 'downloadCSV()' class = ' tip label label-success pull-right' data-toggle='tooltip' title='Download CSV' style="cursor: pointer;">Download</span></a></div>
+	
       	<br><br>
+      	
       	<div class = "table_box" style="height: 500px; overflow:auto;"></div>
-      </div>
-      
+     </div> 
       
          
     </div> <!-- /container -->
