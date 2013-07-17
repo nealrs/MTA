@@ -227,7 +227,8 @@ function plotChart(data) {
 	  // chart options	
 	  var opts = {
   		"dataFormatX": function (x) { return d3.time.format('%Y-%m-%d %X').parse(x); },
-  		"tickFormatX": function (x) { return d3.time.format('%a, %m/%d')(x); }
+  		"tickFormatX": function (x) { return d3.time.format('%a, %m/%d')(x); },
+  		"tickHintY": 10
   	  };
   	  
   	  // finally, create the plot
