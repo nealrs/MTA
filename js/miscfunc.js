@@ -172,13 +172,6 @@ function submitForm(){
 		//update form parameters [fremote is set by map marker onclick]
 		$("#fdates").val( $("#pickdate").html() );
 	
-		//set chart title & range
-		$(".ctitle").html( ttitle );
-		$(".ctrains").html(ttrains);
-		$(".cdates").html( $("#fdates").val() );
-		
-	
-	
 		$.ajax({
 			type: 'get',
 			url: 'get.php',
@@ -195,7 +188,10 @@ function submitForm(){
 				dataTable(parsed.table);
 				JSON2CSV(parsed.table);
 			
-			
+				//set chart title & range
+				$(".ctitle").html( ttitle );
+				$(".ctrains").html(ttrains);
+				$(".cdates").html( $("#fdates").val() );
 			
 				//$('.btn').button('reset');
 								  
