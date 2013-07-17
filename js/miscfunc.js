@@ -830,7 +830,7 @@ var ttitle;
 function trains(trainlist){
 
 	var trains = jQuery.map((trainlist + '').split(''), function(n) {
-	  return '<img style="vertical-align:text-top;" src="http://www.mta.info/siteimages/subwaybullets/' + n.toLowerCase() + '.png">&nbsp;'
+	  return '<img style="vertical-align:text-top;" src="http://www.mta.info/siteimages/subwaybullets/' + n.toLowerCase() + '.png">'
 	});
 	
 	trains = trains.join('');
