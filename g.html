@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MTA Turnstile Traffic - @nealrs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This app creates charts & data tables using MTA turnstile data">
+    <meta name="author" content="Neal Shyam">
+
+    <!-- Le styles -->    
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="css/daterangepicker.css" rel="stylesheet">
+    <link href="css/xcharts.min.css" rel="stylesheet">
+    <link href="css/g.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+	<script type="text/javascript" src="js/daterangepicker.js"></script>
+	<script type="text/javascript" src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/xcharts.min.js"></script>
+	<script type="text/javascript" src="js/miscfunc_g.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  
+  
+  <!----- SHARE THIS ----->
+  	<script type="text/javascript">var switchTo5x=true;</script>
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "ur-7520ac9b-63c9-36e9-1e0c-25421b29a216", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+  <!----- SHARE THIS ----->
+  
+  <!----- Google Analytics ---->
+  <script>
+  	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	ga('create', 'UA-42436122-1', 'nealshyam.com');
+  	ga('send', 'pageview');
+
+	</script>
+  <!----- Google Analytics ---->
+  
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand">MTA Turnstile Traffic</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a class = "tip" data-toggle="tooltip" title="That's my name" href="http://www.nealshyam.com" target="_blank">&copy; 2013 Neal Shyam</a></li>
+              <li><a class = "tip" data-toggle="tooltip" title="Tell me what I can do better!" href="mailto:me@nealshyam.com?subject=MTA%20Turnstile%20Traffic" target="_blank">Feedback</a></li>
+              <li><a class = "tip" data-toggle="tooltip" title="Share this with your friends!"><span class='st_facebook_hcount' displayText='Facebook'></span> <span class='st_twitter_hcount' displayText='Tweet'></span> <span class='st_linkedin_hcount' displayText='LinkedIn'></span> <span class='st_email_hcount' displayText='Email'></span></a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="container" id = "maincont">
+    
+    <div class="alert alert-info alert-large">
+  		<button type="button" class="close" data-dismiss="alert">&times;</button>
+  		This app plots entry & exit traffic at stations along the MTA's G line. If you like this, please check out <strong><a href="map.html">my other data viz projects!</a></strong>
+	</div>
+    
+      <div class="row"> <!--- chart controls --->
+      	<form class="form-inline span12" id ="form">
+    
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-calendar "></i> </span>
+				<input class = "tip" type="text" name="dates" id="dates" data-toggle="tooltip" title="1-2 weeks is ideal" placeholder="MM/DD/YYY to MM/DD/YYY"/>&nbsp;&nbsp;&nbsp;
+  			</div>
+  			
+  			<button class="btn btn-primary chart_button" data-loading-text="<i class='icon-spinner icon-spin'></i> Plot Chart"><i class="icon-bar-chart"> Plot Chart</i></button>
+
+      		<span class="pull-right">
+      			Current dataset: <span id ="lastupdate" class = "tip label label-warning" data-toggle="tooltip" title="The database is updated every Monday"></span>&nbsp;
+      			<span class = "tip label" data-toggle="tooltip" title="As a result of data sanitization, there may be some missing chart data." style="background-color:#000;">Missing Data?</span>&nbsp;
+      			<span class = "tip label" data-toggle="tooltip" title="4 hour interval" style="background-color:#3880aa;">Entries</span>&nbsp;
+      			<span class = "tip label" data-toggle="tooltip" title="4 hour interval" style="background-color:#f26522;">Exits</span>
+ 
+      		</span>
+      	
+      	</form>
+      </div>
+      
+      <div class="row chart_container"> <!--- chart --->
+      	
+      	<div class = "span12">
+			<p class="chartt" id = "ct1">Court Sq</p><figure class = "chartsm " id="chart1"></figure>
+			<p class="chartt" id = "ct2">21st St / Jackson Ave</p><figure class = "chartsm " id="chart2"></figure>
+			<p class="chartt" id = "ct3">Greenpoint Ave / Manhattan Ave</p><figure class = "chartsm " id="chart3"></figure>
+			<p class="chartt" id = "ct4">Nassau Ave / Manhattan Ave</p><figure class = "chartsm " id="chart4"></figure>
+			<p class="chartt" id = "ct5">Metropolitan Ave / Grand St</p><figure class = "chartsm " id="chart5"></figure>
+			<p class="chartt" id = "ct6">Broadway / Union Avenue</p><figure class = "chartsm " id="chart6"></figure>
+			<p class="chartt" id = "ct7">Flushing Ave / Marcy Ave</p><figure class = "chartsm " id="chart7"></figure>
+			<p class="chartt" id = "ct8">Myrtle-Willoughby Aves / Marcy Ave</p><figure class = "chartsm " id="chart8"></figure>
+			<p class="chartt" id = "ct9">Bedford-Nostrand Aves / Lafayette Ave</p><figure class = "chartsm " id="chart9"></figure>
+			<p class="chartt" id = "ct10">Classon Ave / Lafayette Ave</p><figure class = "chartsm " id="chart10"></figure>
+			<p class="chartt" id = "ct11">Clinton-Washington Aves / Lafayette Ave</p><figure class = "chartsm " id="chart11"></figure>
+			<p class="chartt" id = "ct12">Fulton St / Lafayette Ave</p><figure class = "chartsm " id="chart12"></figure>
+			<p class="chartt" id = "ct13">Hoy St-Schermerhorn St</p><figure class = "chartsm " id="chart13"></figure>
+			<p class="chartt" id = "ct14">Bergen St / Smith St</p><figure class = "chartsm " id="chart14"></figure>
+			<p class="chartt" id = "ct15">Carroll St / Smith St</p><figure class = "chartsm " id="chart15"></figure>
+			<p class="chartt" id = "ct16">Smith-9th Sts</p><figure class = "chartsm " id="chart16"></figure>
+			<p class="chartt" id = "ct17">4th Ave / 9th St</p><figure class = "chartsm " id="chart17"></figure>
+			<p class="chartt" id = "ct18">7th Ave / 9th St</p><figure class = "chartsm " id="chart18"></figure>
+			<p class="chartt" id = "ct19">15th Street-Prospect Park / Prospect Park West</p><figure class = "chartsm " id="chart19"></figure>
+			<p class="chartt" id = "ct20">Fort Hamilton Pkwy / Prospect Ave</p><figure class = "chartsm " id="chart20"></figure>
+			<p class="chartt" id = "ct21">Church Ave / McDonald Ave</p><figure class = "chartsm " id="chart21"></figure>
+      	</div>
+      	
+      	<!--<div class="terminus"></div>
+      		<div class="seg">f</div>
+      			<div class="station sr" id = "s1"></div>
+      		<div class="seg">f</div>
+      			<div class="station sl" id = "s2"></div>
+      		<div class="seg">&nbsp;</div>
+      			<div class="station sr" id = "s3"></div>
+      		<div class="seg">&nbsp;</div>
+      			<div class="station sl" id = "s4"></div>
+      		<div class="seg"><&nbsp;</div>
+      			<div class="station sr" id = "s5"></div>
+      		<div class="seg">&nbsp;</div>
+      			<div class="station sl" id = "s6"></div>
+      		<div class="seg"></div>
+      			<div class="station sr" id = "s7"></div>
+      		<div class="seg"></div>
+      			<div class="station sl" id = "s8"></div>
+      		<div class="seg"></div>
+      			<div class="station sr" id = "s9"></div>
+      		<div class="seg"></div>
+      			<div class="station sl" id = "s10"></div>
+      		<div class="seg"></div>
+      			<div class="station sr" id = "s11"></div>
+      		<div class="seg"></div>
+      			<div class="station sl" id = "s12"></div>
+      		<div class="seg"></div>
+      			<div class="station sr" id = "s13"></div>
+      		<div class="seg"></div>
+      			<div class="station sl" id = "s14"></div>
+      		<div class="seg"></div>
+      			<div class="station sr" id = "s15"></div>
+      		<div class="seg"></div>
+      			<div class="station sl" id = "s16"></div>
+      		<div class="seg"></div>
+      			<div class="station sr" id = "s17"></div>
+      		<div class="seg"></div>
+      			<div class="station sl" id = "s18"></div>
+      		<div class="seg"></div>
+      			<div class="station sr" id = "s19"></div>
+      		<div class="seg"></div>
+      			<div class="station sl" id = "s20"></div>
+      		<div class="seg"></div>
+      			<div class="station sr" id = "s21"></div>
+      		<div class="seg"></div>
+          	
+      	<div class="terminus"></div>-->
+      	
+      	
+       </div>
+      
+      <script>$(".tip").tooltip({placement:"bottom"})</script>     
+    </div> <!-- /container -->
+  </body>
+</html>
